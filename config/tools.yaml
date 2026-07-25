@@ -1,0 +1,490 @@
+################################################################################
+#  Parrot OS Setup - Master Configuration
+#  Edit this file to add/remove/modify any tools before running setup.py
+################################################################################
+
+meta:
+  username: "rradhasan" # Your non-root username
+  shell: "/usr/bin/zsh" # Target shell
+  dotfiles_dir: "my_shell" # Relative path to your dotfiles folder
+  deb_dir: "deb" # Relative path to your .deb packages folder
+  github_tools_dir: "tools" # Pre-cloned github tools dir (moved to /opt/)
+  log_file: "logs/setup.log"
+
+################################################################################
+# APT TOOLS
+################################################################################
+apt:
+  - category: "Recon & OSINT"
+    tools:
+      - amass
+      - assetfinder
+      - httprobe
+      - massdns
+      - sublist3r
+      - dirsearch
+
+  - category: "Web Fuzzing"
+    tools:
+      - ffuf
+      - wfuzz
+      - gobuster
+      - feroxbuster
+
+  - category: "Exploitation"
+    tools:
+      - exploitdb
+      - exploitdb-bin-sploits
+      - exploitdb-papers
+      - seclists
+      - steghide
+
+  - category: "Password & Hashing"
+    tools:
+      - hash-identifier
+      - cupp
+      - crunch
+      - hashid
+      - hashrat
+
+  - category: "Network & Remote"
+    tools:
+      - ftp
+      - tnftp
+      - ltrace
+      - rdesktop
+
+  - category: "Virtualization"
+    tools:
+      - snapd
+
+  - category: "Privacy & Misc"
+    tools:
+      - wifi-qr
+
+  - category: "Dev & Build Tools"
+    tools:
+      - cmake
+      - g++
+      - gh
+      - gfortran
+      - pkg-config
+      - libfontconfig1-dev
+      - libxcb-xfixes0-dev
+      - libxkbcommon-dev
+      - pipx
+      - tesseract-ocr
+      - yamllint
+      - jq
+      - fzf
+      - bat
+      - btop
+      - figlet
+      - xournalpp
+
+  - category: "Shell & Terminal"
+    tools:
+      - zsh
+      - zsh-autocomplete
+      - zsh-autosuggestions
+      - zsh-syntax-highlighting
+      - zsh-common
+      - terminator
+
+  - category: "Editors & Writing"
+    tools:
+      - ghostwriter
+      - thonny
+
+  - catagory: "Utilities"
+    tools:
+      - rename
+      - fonts-beng
+      - ibus
+      - ibus-m17n
+
+  - category: "Media & Desktop"
+    tools:
+      - flameshot
+      - peek
+      - libgnome-menu-3-0
+      - variety
+      - gpaste-2
+      - mpv
+      - vokoscreen-ng
+
+  - category: "Archive & USB"
+    tools:
+      - 7zip
+      - rar
+      - woeusb-ng
+
+################################################################################
+# DEB PACKAGES  (place .deb files in the deb/ folder)
+################################################################################
+deb:
+  - category: "Communication"
+    packages:
+      - file: "discord-1.0.138.deb"
+        name: "Discord"
+      - file: "Clockify_Setup_x64.deb"
+        name: "Clockify"
+
+  - category: "Development Tools"
+    packages:
+      - file: "code.deb"
+        name: "VS Code"
+      - file: "replit_1.0.19_amd64.deb"
+        name: "Replit"
+      - file: "rustscan_2.4.1-1_amd64.deb"
+        name: "RustScan"
+      - file: "claude.deb"
+        name: "Claude"
+
+  - category: "Design & Productivity"
+    packages:
+      - file: "figma-linux_0.11.5_linux_amd64.deb"
+        name: "Figma Linux"
+      - file: "Xmind-for-Linux-amd64bit-26.03.04129-202605111647.deb"
+        name: "XMind"
+      - file: "obsidian_1.12.7_amd64.deb"
+        name: "Obsidian"
+
+  - category: "Security Tools"
+    packages:
+      - file: "Nessus-10.12.0-debian10_amd64.deb"
+        name: "Nessus"
+      - file: "stegseek_0.6-1.deb"
+        name: "Stegseek"
+      - file: "openstego_0.8.6-1_all.deb"
+        name: "OpenStego"
+      - file: "HackerAI-linux-x64.deb"
+        name: "HackerAI"
+
+  - category: "Utilities"
+    packages:
+      - file: "TeraBox_1.44.4_amd64.deb"
+        name: "TeraBox"
+      - file: "RLinux6_x64.deb"
+        name: "RLinux"
+      - file: "virtualbox-7.2.deb"
+        name: "Virtualbox 7.2"
+      - file: "plank.deb"
+        name: "Plank"
+
+################################################################################
+# GO TOOLS  (requires Go installed)
+################################################################################
+go:
+  - category: "ProjectDiscovery Suite"
+    tools:
+      - pkg: "github.com/projectdiscovery/httpx/cmd/httpx@latest"
+        name: "httpx"
+      - pkg: "github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest"
+        name: "nuclei"
+      - pkg: "github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest"
+        name: "subfinder"
+      - pkg: "github.com/projectdiscovery/naabu/v2/cmd/naabu@latest"
+        name: "naabu"
+      - pkg: "github.com/projectdiscovery/asnmap/cmd/asnmap@latest"
+        name: "asnmap"
+      - pkg: "github.com/projectdiscovery/shuffledns/cmd/shuffledns@latest"
+        name: "shuffledns"
+      - pkg: "github.com/projectdiscovery/mapcidr/cmd/mapcidr@latest"
+        name: "mapcidr"
+      - pkg: "github.com/projectdiscovery/katana/cmd/katana@latest"
+        name: "katana"
+      - pkg: "github.com/projectdiscovery/cdncheck/cmd/cdncheck@latest"
+        name: "cdncheck"
+      - pkg: "github.com/projectdiscovery/cvemap/cmd/cvemap@latest"
+        name: "cvemap"
+      - pkg: "github.com/projectdiscovery/alterx/cmd/alterx@latest"
+        name: "alterx"
+      - pkg: "github.com/projectdiscovery/dnsx/cmd/dnsx@latest"
+        name: "dnsx"
+      - pkg: "github.com/projectdiscovery/chaos-client/cmd/chaos@latest"
+        name: "chaos"
+      - pkg: "github.com/projectdiscovery/notify/cmd/notify@latest"
+        name: "notify"
+      - pkg: "github.com/projectdiscovery/uncover/cmd/uncover@latest"
+        name: "uncover"
+      - pkg: "github.com/projectdiscovery/tlsx/cmd/tlsx@latest"
+        name: "tlsx"
+      - pkg: "github.com/projectdiscovery/urlfinder/cmd/urlfinder@latest"
+        name: "urlfinder"
+      - pkg: "github.com/projectdiscovery/wappalyzergo/cmd/update-fingerprints@latest"
+        name: "wappalyzergo"
+      - pkg: "github.com/projectdiscovery/dnsprobe@latest"
+        name: "dnsprobe"
+
+  - category: "TomNomNom Tools"
+    tools:
+      - pkg: "github.com/tomnomnom/waybackurls@latest"
+        name: "waybackurls"
+      - pkg: "github.com/tomnomnom/gf@latest"
+        name: "gf"
+      - pkg: "github.com/tomnomnom/anew@latest"
+        name: "anew"
+      - pkg: "github.com/tomnomnom/gron@latest"
+        name: "gron"
+      - pkg: "github.com/tomnomnom/qsreplace@latest"
+        name: "qsreplace"
+      - pkg: "github.com/tomnomnom/unfurl@latest"
+        name: "unfurl"
+      - pkg: "github.com/tomnomnom/meg@latest"
+        name: "meg"
+
+  - category: "Hakluke Tools"
+    tools:
+      - pkg: "github.com/hakluke/hakrawler@latest"
+        name: "hakrawler"
+      - pkg: "github.com/hakluke/hakrevdns@latest"
+        name: "hakrevdns"
+      - pkg: "github.com/hakluke/hakoriginfinder@latest"
+        name: "hakoriginfinder"
+      - pkg: "github.com/hakluke/hakcheckurl@latest"
+        name: "hakcheckurl"
+      - pkg: "github.com/hakluke/haktrails@latest"
+        name: "haktrails"
+      - pkg: "github.com/hakluke/haktldextract@latest"
+        name: "haktldextract"
+      - pkg: "github.com/hakluke/hakip2host@latest"
+        name: "hakip2host"
+      - pkg: "github.com/hakluke/hakfindinternaldomains@latest"
+        name: "hakfindinternaldomains"
+      - pkg: "github.com/hakluke/hakgzsplit@latest"
+        name: "hakgzsplit"
+      - pkg: "github.com/hakluke/hakaxfr@latest"
+        name: "hakaxfr"
+      - pkg: "github.com/hakluke/hakawshostnames@latest"
+        name: "hakawshostnames"
+      - pkg: "github.com/hakluke/hakcertstream@latest"
+        name: "hakcertstream"
+      - pkg: "github.com/hakluke/hakcron@latest"
+        name: "hakcron"
+      - pkg: "github.com/hakluke/haksecuritytxt@latest"
+        name: "haksecuritytxt"
+      - pkg: "github.com/hakluke/haklistgen@latest"
+        name: "haklistgen"
+      - pkg: "github.com/hakluke/hakurlencode@latest"
+        name: "hakurlencode"
+      - pkg: "github.com/hakluke/hakrevshell@latest"
+        name: "hakrevshell"
+
+  - category: "XSS & Web Attacks"
+    tools:
+      - pkg: "github.com/hahwul/dalfox/v2@latest"
+        name: "dalfox"
+      - pkg: "github.com/Buzz2d0/xssfinder/cmd/xssfinder@latest"
+        name: "xssfinder"
+      - pkg: "github.com/hahwul/authz0@latest"
+        name: "authz0"
+
+  - category: "Subdomain Tools"
+    tools:
+      - pkg: "github.com/haccer/subjack@latest"
+        name: "subjack"
+      - pkg: "github.com/LukaSikic/subzy@latest"
+        name: "subzy"
+      - pkg: "github.com/Nemesis0U/Subhunter@latest"
+        name: "Subhunter"
+      - pkg: "github.com/gwen001/github-subdomains@latest"
+        name: "github-subdomains"
+      - pkg: "github.com/gwen001/gitlab-subdomains@latest"
+        name: "gitlab-subdomains"
+      - pkg: "github.com/incogbyte/shosubgo@latest"
+        name: "shosubgo"
+      - pkg: "github.com/Josue87/gotator@latest"
+        name: "gotator"
+      - pkg: "github.com/d3mondev/puredns/v2@latest"
+        name: "puredns"
+
+  - category: "URL & JS Recon"
+    tools:
+      - pkg: "github.com/lc/gau/v2/cmd/gau@latest"
+        name: "gau"
+      - pkg: "github.com/bp0lr/gauplus@latest"
+        name: "gauplus"
+      - pkg: "github.com/utkusen/urlhunter@latest"
+        name: "urlhunter"
+      - pkg: "github.com/0xsha/GoLinkFinder@latest"
+        name: "GoLinkFinder"
+      - pkg: "github.com/cc1a2b/jshunter@latest"
+        name: "jshunter"
+      - pkg: "github.com/gwen001/github-endpoints@latest"
+        name: "github-endpoints"
+      - pkg: "github.com/tomnomnom/unfurl@latest"
+        name: "unfurl"
+
+  - category: "Scanning & Fingerprinting"
+    tools:
+      - pkg: "github.com/s0md3v/smap/cmd/smap@latest"
+        name: "smap"
+      - pkg: "github.com/zan8in/afrog/v3/cmd/afrog@latest"
+        name: "afrog"
+      - pkg: "github.com/assetnote/kiterunner@latest"
+        name: "kiterunner"
+      - pkg: "github.com/jaeles-project/gospider@latest"
+        name: "gospider"
+      - pkg: "github.com/bitquark/shortscan/cmd/shortscan@latest"
+        name: "shortscan"
+      - pkg: "github.com/MrEmpy/mantra@latest"
+        name: "mantra"
+      - pkg: "github.com/gatariee/gocheck@latest"
+        name: "gocheck"
+      - pkg: "github.com/rs/dnstrace@latest"
+        name: "dnstrace"
+      - pkg: "github.com/Elite-Security-Systems/radar/cmd/radar@latest"
+        name: "radar"
+
+  - category: "SSRF & LFI"
+    tools:
+      - pkg: "github.com/ethicalhackingplayground/ssrf-tool@latest"
+        name: "ssrf-tool"
+      - pkg: "github.com/mrco24/mrco24-lfi@latest"
+        name: "mrco24-lfi"
+
+  - category: "Misc Go Tools"
+    tools:
+      - pkg: "github.com/xm1k3/cent@latest"
+        name: "cent"
+      - pkg: "github.com/alpkeskin/mosint/v3/cmd/mosint@latest"
+        name: "mosint"
+      - pkg: "github.com/j3ssie/osmedeus@latest"
+        name: "osmedeus"
+      - pkg: "github.com/ferreiraklet/Jeeves@latest"
+        name: "Jeeves"
+      - pkg: "github.com/denandz/sourcemapper@latest"
+        name: "sourcemapper"
+      - pkg: "github.com/musana/cf-hero/cmd/cf-hero@latest"
+        name: "cf-hero"
+      - pkg: "github.com/mmarting/unwaf@latest"
+        name: "unwaf"
+      - pkg: "github.com/aandrew-me/tgpt/v2@latest"
+        name: "tgpt"
+      - pkg: "github.com/rs/curlie@latest"
+        name: "curlie"
+      - pkg: "software.sslmate.com/src/certspotter/cmd/certspotter@latest"
+        name: "certspotter"
+
+################################################################################
+# PIP PACKAGES
+################################################################################
+pip:
+  - category: "Security & Exploitation"
+    tools:
+      - pwntools
+
+  - category: "Web Framework"
+    tools:
+      - flask
+      - django
+      - flask_sqlalchemy
+      - flask-migrate
+      - fastapi
+
+  - category: "Recon"
+    tools:
+      - waymore
+      
+  - category: "Utilities"
+    tools:
+      - pyautogui
+      - numpy
+      - pandas
+      - pywebview
+      - lbfi
+
+################################################################################
+# SHELL SETUP
+################################################################################
+shell:
+  change_root_shell: true
+  change_user_shell: true
+  dotfiles:
+    - src: "my_shell/bashrc"
+      dest: "/home/{username}/.bashrc"
+    - src: "my_shell/zshrc"
+      dest: "/home/{username}/.zshrc"
+    - src: "my_shell/root-zshrc"
+      dest: "/root/.zshrc"
+
+################################################################################
+# GITHUB TOOLS (pre-cloned, moved to /opt/)
+################################################################################
+github:
+  source_dir: "tools"
+  dest_dir: "/opt"
+
+################################################################################
+# SYSTEM
+################################################################################
+system:
+  update_before_install: true
+  fix_broken_after_install: true
+  autoremove_after_install: true
+
+################################################################################
+# GO ENVIRONMENT
+# Sets persistent Go env vars via `go env -w`.
+# These are saved to ~/.config/go/env and survive reboots.
+#
+# WHY NOT /usr/local/go as GOPATH:
+#   That directory is where the Go compiler itself lives.
+#   Your binaries and modules go in ~/go (or /root/go for root).
+#   Mixing them causes permission errors and breaks `go install`.
+################################################################################
+go_env:
+  env_vars:
+    GOPATH: "/usr/local/go" # where `go install` puts binaries
+    GOMODCACHE: "/usr/local/go/pkg/mod" # where module cache lives
+
+################################################################################
+# VIRTUALBOX
+# Uses the modern gpg --dearmor method (NOT deprecated apt-key add).
+# Change version to match what you want, e.g. "7.0" or "7.1"
+################################################################################
+virtualbox:
+  version: "7.1"
+
+################################################################################
+# DOCKER
+# method: "script"  → uses get.docker.com convenience script (easiest)
+# method: "repo"    → adds Docker's apt repo manually (more control)
+################################################################################
+docker:
+  method: "script" # "script" or "repo"
+  add_user_to_group: true # adds your user to the docker group (no sudo needed)
+  autostart: false # set true if you want docker to start at boot
+
+################################################################################
+# EXTRAS
+# One-off tasks. Set install: false to skip any section.
+################################################################################
+extras:
+  brave:
+    install: true
+
+  bangla_fonts:
+    install: true
+
+  purge_parrot_updater: true
+
+  ollama:
+    install: true
+    disable_autostart: true # disable boot service; run manually with: ollama serve
+    models:
+      - mistral # ~4.1GB — comment out if on slow connection
+      - codellama # ~3.8GB — comment out if on slow connection
+
+  snap:
+    packages:
+      - name: "video-downloader"
+      - name: "notion-desktop"
+      - name: "google-bird"
+      - name: "snap-store"
+
+  gems:
+    packages:
+      - name: "wpscan"
+      - name: "haiti"
