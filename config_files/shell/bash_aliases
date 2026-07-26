@@ -1,0 +1,62 @@
+# My custom aliases
+# DorkFinder
+alias dorkfinder='python /opt/DorkFinder/dorkfinder.py'
+# SSRFmap
+alias ssrfmap='python /opt/SSRFmap/ssrfmap.py'
+# CloudFlare
+alias cloudflair='python /opt/CloudFlair/cloudflair.py'
+# SqliFinder
+alias sqlifinder='python /opt/sqlifinder/sqlifinder.py'
+# Dnmasscan
+# alias dnmasscan='bash /opt/dnmasscan/dnmasscan.sh'
+# EmBomber
+# alias embomber='python /opt/EmBomber/EmBomber.py'
+# Forbiddenpass
+alias forbiddenpass='python /opt/forbiddenpass/forbiddenpass.py'
+# Paramspider
+# alias paramspider='python /opt/ParamSpider/paramspider.py'
+# SubreconGPT
+alias subrecongpt='python /opt/SubreconGPT/subrecongpt.py'
+# SSTImap
+alias sstimap='python /opt/SSTImap/sstimap.py'
+# XXEinjector
+alias xxeinjector='ruby /opt/XXEinjector/XXEinjector.rb'
+# JWT_Tools
+alias jwt_tool='python /opt/jwt_tool/jwt_tool.py'
+# Fuxploider
+alias fuxploider='python /opt/fuxploider/fuxploider.py'
+# Loxs
+alias loxs='python /opt/loxs/loxs.py'
+# Linux Age
+alias age="python /opt/mytools/age.py"
+# Lazy-Hunter - The Recon Tool
+alias lazyhunter="python /opt/Lazy-Hunter/lazyhunter.py"
+
+# My Web Application Flask Server
+alias myworklist='cd /home/rradhasan/Documents/project/web/back_end/flask/todo/todo && flask run --host=192.168.0.114 --port 9000'
+
+# Mess Web Application Flask Server
+# alias tusharMess='python /home/rradhasan/Documents/project/web/mess_management/app.py'
+
+# USB-FORMATTER
+# alias usb-formatter='bash /opt/mytools/usb-formatter.sh'
+
+# scpRemover
+alias scpRemover='python /opt/scpRemover/scpRemover.py'
+
+# Parrot Update Driver
+alias update='bash /opt/mytools/update.sh'
+
+# My Server Port 9999
+alias myserver='python -m http.server 9999'
+
+# Docker Status and Start and End
+alias stop_docker='sudo systemctl disable docker && sudo systemctl disable docker.socket && sudo systemctl stop docker.socket && sudo systemctl stop docker'
+
+# httpx conflict
+alias httpx='/usr/local/go/bin/httpx'
+
+
+
+
+

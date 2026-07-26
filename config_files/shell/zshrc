@@ -1,0 +1,96 @@
+# Greeting
+# echo "Welcome to Parrot OS"
+
+# Prompt
+PROMPT="%F{#D80032}┌[%f%F{#00A9FF}%m%f%F{#D80032}]─[%f%F{#ffffff}%D{%H:%M-%d/%m}%f%F{#D80032}]─[%f%F{#00FF00}%d%f%F{#D80032}]%f"$'\n'"%F{#D80032}└──╼%f%F{#00FF00} $USER %f%F{#D80032}#%f "
+# Export PATH$
+export PATH=~/.local/bin:/snap/bin:/usr/sandbox/:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/share/games:/usr/local/sbin:/usr/sbin:/sbin:/root/go/bin:/usr/local/go/bin:$PATH
+
+
+function hex-encode()
+{
+  echo "$@" | xxd -p
+}
+
+function hex-decode()
+{
+  echo "$@" | xxd -p -r
+}
+
+function rot13()
+{
+  echo "$@" | tr 'A-Za-z' 'N-ZA-Mn-za-m'
+}
+
+# alias
+alias ls='ls -lh --color=auto'
+alias dir='dir --color=auto'
+alias vdir='vdir --color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+# My custom aliases
+alias ll='ls -lh'
+# DorkFinder
+alias dorkfinder='python /opt/DorkFinder/dorkfinder.py'
+# SSRFmap
+alias ssrfmap='python /opt/SSRFmap/ssrfmap.py'
+# CloudFlare
+alias cloudflair='python /opt/CloudFlair/cloudflair.py'
+# SqliFinder
+alias sqlifinder='python /opt/sqlifinder/sqlifinder.py'
+# Dnmasscan
+alias dnmasscan='bash /opt/dnmasscan/dnmasscan.sh'
+# EmBomber
+alias embomber='python /opt/EmBomber/EmBomber.py'
+# Forbiddenpass
+alias forbiddenpass='python /opt/forbiddenpass/forbiddenpass.py'
+# Paramspider
+alias paramspider='python /opt/ParamSpider/paramspider.py'
+# Bypass 403
+alias bypass-403='bash /opt/bypass-403/bypass-403.sh'
+# XSS Vibes
+alias xss-vibes='python /opt/xss_vibes/main.py'
+
+
+#####################################################
+# Auto completion / suggestion
+# Mixing zsh-autocomplete and zsh-autosuggestions
+# Requires: zsh-autocomplete (custom packaging by Parrot Team)
+# Jobs: suggest files / foldername / histsory bellow the prompt
+# Requires: zsh-autosuggestions (packaging by Debian Team)
+# Jobs: Fish-like suggestion for command history
+if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+  source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
+
+##################################################
+# Fish like syntax highlighting
+# Requires "zsh-syntax-highlighting" from apt
+if [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+  source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+
+if [ -f /usr/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh ]; then
+  source /usr/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+  # Select all suggestion instead of top on result only
+  zstyle ':autocomplete:tab:*' insert-unambiguous yes
+  zstyle ':autocomplete:tab:*' widget-style menu-select
+  zstyle ':autocomplete:*' min-input 2
+  bindkey $key[Up] up-line-or-history
+  bindkey $key[Down] down-line-or-history
+fi
+
+# Save type history for completion and easier life
+HISTFILE=~/.zsh_history
+HISTSIZE=1000000000
+SAVEHIST=1000000000
+setopt appendhistory
+
+# Useful alias for benchmarking programs
+# require install package "time" sudo apt install time
+# alias time="/usr/bin/time -f '\t%E real,\t%U user,\t%S sys,\t%K amem,\t%M mmem'"
+# Display last command interminal
+echo -en "\e]2;Parrot Terminal\a"
+preexec () { print -Pn "\e]0;$1 - Parrot Terminal\a" }
