@@ -29,6 +29,7 @@ apt:
       - wfuzz
       - gobuster
       - feroxbuster
+      - arjun
 
   - category: "Exploitation"
     tools:
