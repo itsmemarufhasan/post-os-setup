@@ -374,7 +374,9 @@ pip:
   - category: "Security & Exploitation"
     tools:
       - pwntools
+      - pycryptodome
       - git+https://github.com/maurosoria/dirsearch.git
+      - 
 
   - category: "Web Framework"
     tools:
@@ -387,7 +389,7 @@ pip:
   - category: "Recon"
     tools:
       - waymore
-      
+
   - category: "Utilities"
     tools:
       - pyautogui
