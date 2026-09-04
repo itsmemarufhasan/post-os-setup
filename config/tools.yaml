@@ -377,7 +377,7 @@ pip:
       - pwntools
       - pycryptodome
       - git+https://github.com/maurosoria/dirsearch.git
-      - 
+      - pyshark
 
   - category: "Web Framework"
     tools:
